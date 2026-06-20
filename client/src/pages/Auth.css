@@ -1,0 +1,140 @@
+/* ─── Auth Page ─────────────────────────────────────────────────── */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ambient background orbs */
+.auth-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+.auth-orb-1 {
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, #6c63ff, transparent);
+  top: -200px; left: -200px;
+}
+.auth-orb-2 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, #8b5cf6, transparent);
+  bottom: -150px; right: -150px;
+}
+
+/* ─── Auth Card ─────────────────────────────────────────────────── */
+.auth-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-lg), 0 0 60px rgba(108, 99, 255, 0.08);
+}
+
+/* ─── Logo ──────────────────────────────────────────────────────── */
+.auth-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+.auth-logo-icon {
+  width: 40px; height: 40px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  box-shadow: var(--shadow-accent);
+}
+.auth-logo-text {
+  font-size: 1.35rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--text-primary), var(--accent-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Header ────────────────────────────────────────────────────── */
+.auth-header { margin-bottom: 1.75rem; }
+.auth-header h1 { font-size: 1.6rem; margin-bottom: 0.3rem; }
+.auth-header p { color: var(--text-secondary); font-size: 0.9rem; }
+
+/* ─── Form ──────────────────────────────────────────────────────── */
+.auth-form { display: flex; flex-direction: column; gap: 1.1rem; }
+
+.input-with-icon {
+  position: relative;
+}
+.input-with-icon .form-input { padding-right: 3rem; }
+
+.input-icon-btn {
+  position: absolute;
+  right: 0.9rem; top: 50%;
+  transform: translateY(-50%);
+  background: none; border: none;
+  color: var(--text-muted);
+  display: flex; align-items: center;
+  transition: var(--transition);
+}
+.input-icon-btn:hover { color: var(--text-secondary); }
+
+/* ─── Password Strength ─────────────────────────────────────────── */
+.password-strength {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.4rem;
+}
+.strength-bars {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+}
+.strength-bar {
+  flex: 1;
+  height: 3px;
+  background: var(--border);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+.strength-bar.weak   { background: var(--danger); }
+.strength-bar.good   { background: var(--warning); }
+.strength-bar.strong { background: var(--success); }
+
+.strength-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-width: 40px;
+}
+.strength-label.weak   { color: var(--danger); }
+.strength-label.good   { color: var(--warning); }
+.strength-label.strong { color: var(--success); }
+
+/* ─── Footer ────────────────────────────────────────────────────── */
+.auth-switch {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+.auth-link {
+  color: var(--accent-light);
+  font-weight: 600;
+  transition: var(--transition);
+}
+.auth-link:hover { color: var(--text-primary); text-decoration: underline; }
+
+/* ─── Spinner in button ─────────────────────────────────────────── */
+.spin-icon { animation: spin 0.7s linear infinite; }
