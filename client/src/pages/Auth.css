@@ -20,12 +20,12 @@
 }
 .auth-orb-1 {
   width: 600px; height: 600px;
-  background: radial-gradient(circle, #6c63ff, transparent);
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.12), transparent);
   top: -200px; left: -200px;
 }
 .auth-orb-2 {
   width: 500px; height: 500px;
-  background: radial-gradient(circle, #8b5cf6, transparent);
+  background: radial-gradient(circle, rgba(148, 163, 184, 0.06), transparent);
   bottom: -150px; right: -150px;
 }
 
@@ -39,7 +39,7 @@
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
   padding: 2.5rem;
-  box-shadow: var(--shadow-lg), 0 0 60px rgba(108, 99, 255, 0.08);
+  box-shadow: var(--shadow-lg), 0 0 60px rgba(14, 165, 233, 0.04);
 }
 
 /* ─── Logo ──────────────────────────────────────────────────────── */
@@ -51,19 +51,16 @@
 }
 .auth-logo-icon {
   width: 40px; height: 40px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  background: var(--accent);
   border-radius: var(--radius-sm);
   display: flex; align-items: center; justify-content: center;
-  color: #fff;
-  box-shadow: var(--shadow-accent);
+  color: #090b0f;
+  font-weight: 700;
 }
 .auth-logo-text {
   font-size: 1.35rem;
   font-weight: 800;
-  background: linear-gradient(135deg, var(--text-primary), var(--accent-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text-primary);
 }
 
 /* ─── Header ────────────────────────────────────────────────────── */
