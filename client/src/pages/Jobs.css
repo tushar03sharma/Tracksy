@@ -1,0 +1,117 @@
+.jobs-page { max-width: 1100px; }
+
+/* ─── Filters Bar ───────────────────────────────────────────────── */
+.filters-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1.1rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.search-box {
+  position: relative;
+  flex: 1;
+  min-width: 180px;
+}
+.search-icon {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+.search-input {
+  width: 100%;
+  padding: 0.6rem 1rem 0.6rem 2.4rem;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 0.88rem;
+  outline: none;
+  transition: var(--transition);
+}
+.search-input:focus { border-color: var(--border-focus); box-shadow: 0 0 0 3px var(--accent-glow); }
+.search-input::placeholder { color: var(--text-muted); }
+
+.filters-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+}
+.filter-select {
+  padding: 0.55rem 0.9rem;
+  font-size: 0.85rem;
+  min-width: 140px;
+}
+
+/* ─── Table ─────────────────────────────────────────────────────── */
+.jobs-table-wrapper {
+  overflow-x: auto;
+  padding: 0;
+}
+
+.jobs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.jobs-table thead tr {
+  border-bottom: 1px solid var(--border);
+}
+.jobs-table th {
+  padding: 0.85rem 1.1rem;
+  text-align: left;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.job-row {
+  border-bottom: 1px solid var(--border);
+  transition: var(--transition);
+}
+.job-row:last-child { border-bottom: none; }
+.job-row:hover { background: var(--bg-card-hover); }
+
+.jobs-table td { padding: 0.9rem 1.1rem; vertical-align: middle; }
+
+.job-company { font-weight: 600; color: var(--text-primary); white-space: nowrap; }
+.job-role    { color: var(--text-secondary); max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.job-date    { color: var(--text-muted); font-size: 0.82rem; white-space: nowrap; }
+.text-muted  { color: var(--text-muted); }
+
+.job-link-btn { padding: 0.35rem; }
+
+.job-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* ─── Pagination ────────────────────────────────────────────────── */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.pagination-info {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
