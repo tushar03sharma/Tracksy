@@ -2,16 +2,19 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
+import AppLayout from './components/layout/AppLayout';
 
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
+import Jobs from './pages/Jobs';
+import JobForm from './pages/JobForm';
+import JobDetail from './pages/JobDetail';
 
 function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        {/* Global toast notifications */}
         <Toaster
           position="top-right"
           toastOptions={{
@@ -28,17 +31,21 @@ function App() {
         />
 
         <Routes>
-          {/* Public routes */}
+          {/* Public */}
           <Route path="/login"    element={<Login />} />
           <Route path="/register" element={<Register />} />
 
-          {/* Protected routes — wrapped by ProtectedRoute Outlet */}
+          {/* Protected — renders inside AppLayout (Sidebar + main) */}
           <Route element={<ProtectedRoute />}>
-            <Route path="/dashboard" element={<Dashboard />} />
-            {/* More protected routes will be added here */}
+            <Route element={<AppLayout />}>
+              <Route path="/dashboard"       element={<Dashboard />} />
+              <Route path="/jobs"            element={<Jobs />} />
+              <Route path="/jobs/new"        element={<JobForm />} />
+              <Route path="/jobs/:id"        element={<JobDetail />} />
+              <Route path="/jobs/:id/edit"   element={<JobForm />} />
+            </Route>
           </Route>
 
-          {/* Default redirect */}
           <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
       </AuthProvider>
