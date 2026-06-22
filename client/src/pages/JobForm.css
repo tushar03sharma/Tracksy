@@ -1,0 +1,76 @@
+.job-form-page { max-width: 1000px; }
+
+/* ─── Back Button Row ───────────────────────────────────────────── */
+.page-header-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.back-btn { margin-top: 0.25rem; flex-shrink: 0; }
+
+/* ─── Two Column Layout ─────────────────────────────────────────── */
+.job-form-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+@media (max-width: 820px) {
+  .job-form-grid { grid-template-columns: 1fr; }
+}
+
+.form-column { display: flex; flex-direction: column; gap: 1.25rem; }
+
+/* ─── Section Cards ─────────────────────────────────────────────── */
+.form-section { display: flex; flex-direction: column; gap: 1rem; }
+
+.form-section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0.25rem;
+}
+
+/* ─── Input with Icon ───────────────────────────────────────────── */
+.input-icon-wrap {
+  position: relative;
+}
+.field-icon {
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+.icon-input { padding-left: 2.5rem; }
+
+/* ─── Form Row (2 cols inside a card) ──────────────────────────── */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+@media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
+
+/* ─── Date Input color fix for dark theme ───────────────────────── */
+.date-input { color-scheme: dark; }
+
+/* ─── Required Asterisk ─────────────────────────────────────────── */
+.required { color: var(--danger); margin-left: 0.1rem; }
+
+/* ─── Actions Row ───────────────────────────────────────────────── */
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.85rem;
+}
+
+/* ─── Spin Icon (reuse from auth) ───────────────────────────────── */
+.spin-icon { animation: spin 0.7s linear infinite; }
