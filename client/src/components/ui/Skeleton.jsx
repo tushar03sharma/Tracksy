@@ -1,6 +1,6 @@
 import './Skeleton.css';
 
-// Reusable skeleton block — pass width/height to customize
+// Reusable skeleton block pass width/height to customize
 const Skeleton = ({ width = '100%', height = '16px', radius = '6px', className = '' }) => (
   <div
     className={`skeleton ${className}`}
