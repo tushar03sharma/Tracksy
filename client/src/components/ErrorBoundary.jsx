@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { AlertTriangle, RefreshCw } from 'lucide-react';
 import '../pages/NotFound.css';
 
-// Class component required — React error boundaries only work as class components
+// Class component required  React error boundaries only work as class components
 class ErrorBoundary extends Component {
   constructor(props) {
     super(props);
