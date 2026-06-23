@@ -45,7 +45,7 @@
   line-height: 1.6;
 }
 
-/* ─── Error Boundary styles ─────────────────────────────────────── */
+/*  Error Boundary styles  */
 .error-boundary-page {
   min-height: 100vh;
   display: flex;
