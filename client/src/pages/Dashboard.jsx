@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Briefcase, CheckCircle, XCircle, Trophy,
-  TrendingUp, Plus, Loader2
+  Briefcase, TrendingUp, Plus, Trophy, XCircle
 } from 'lucide-react';
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer,
@@ -13,6 +12,7 @@ import { jobsAPI } from '../api';
 import { useAuth } from '../context/AuthContext';
 import StatCard from '../components/ui/StatCard';
 import StatusBadge from '../components/ui/StatusBadge';
+import { StatCardSkeleton } from '../components/ui/Skeleton';
 import { STATUS_COLORS, formatDate } from '../utils/statusHelpers';
 import './Dashboard.css';
 
@@ -46,8 +46,10 @@ const Dashboard = () => {
 
   if (loading) {
     return (
-      <div className="full-page-loader">
-        <div className="spinner" />
+      <div className="dashboard animate-fadeIn">
+        <div className="stats-grid">
+          {[...Array(4)].map((_, i) => <StatCardSkeleton key={i} />)}
+        </div>
       </div>
     );
   }
