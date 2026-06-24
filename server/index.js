@@ -9,6 +9,7 @@ const compression = require('compression');
 const hpp = require('hpp');
 
 const connectDB = require('./config/db');
+const passport  = require('./config/passport');
 const errorHandler = require('./middleware/errorHandler');
 const AppError = require('./utils/AppError');
 
@@ -45,8 +46,11 @@ app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 
 //  Data Sanitization 
-app.use(mongoSanitize()); // Prevent NoSQL injection ($, . in body)
-app.use(hpp());           // Prevent HTTP parameter pollution (duplicate query keys)
+app.use(mongoSanitize());
+app.use(hpp());
+
+//  Passport 
+app.use(passport.initialize());
 
 //  Rate Limiting 
 const globalLimiter = rateLimit({
