@@ -4,6 +4,7 @@ import { Eye, EyeOff, Briefcase, Loader2 } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { authAPI } from '../api';
 import { useAuth } from '../context/AuthContext';
+import GoogleButton from '../components/ui/GoogleButton';
 import './Auth.css';
 
 const Register = () => {
@@ -139,6 +140,10 @@ const Register = () => {
             )}
             {errors.password && <span className="field-error">{errors.password}</span>}
           </div>
+
+          <GoogleButton label="Sign up with Google" />
+
+          <div className="auth-divider">or</div>
 
           <button type="submit" className="btn btn-primary btn-lg btn-full" disabled={loading}>
             {loading ? <Loader2 size={18} className="spin-icon" /> : null}
