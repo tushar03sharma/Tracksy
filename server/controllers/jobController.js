@@ -2,7 +2,7 @@ const Job = require('../models/Job');
 const AppError = require('../utils/AppError');
 const catchAsync = require('../utils/catchAsync');
 
-// ─── GET /api/jobs ────────────────────────────────────────────────────────────
+//  GET /api/jobs 
 // Supports: search by company, filter by status, sort by date, pagination
 const getJobs = catchAsync(async (req, res) => {
   const { search, status, sort = '-appliedDate', page = 1, limit = 10 } = req.query;
@@ -36,14 +36,14 @@ const getJobs = catchAsync(async (req, res) => {
   });
 });
 
-// ─── POST /api/jobs ───────────────────────────────────────────────────────────
+// POST /api/jobs 
 const createJob = catchAsync(async (req, res) => {
   // Attach user from JWT — prevents users from spoofing other user IDs
   const job = await Job.create({ ...req.body, user: req.user._id });
   res.status(201).json({ status: 'success', data: { job } });
 });
 
-// ─── GET /api/jobs/:id ────────────────────────────────────────────────────────
+//  GET /api/jobs/:id 
 const getJob = catchAsync(async (req, res, next) => {
   // Filter by both _id AND user → user can only fetch their own jobs
   const job = await Job.findOne({ _id: req.params.id, user: req.user._id });
@@ -51,7 +51,7 @@ const getJob = catchAsync(async (req, res, next) => {
   res.status(200).json({ status: 'success', data: { job } });
 });
 
-// ─── PATCH /api/jobs/:id ──────────────────────────────────────────────────────
+// PATCH /api/jobs/:id 
 const updateJob = catchAsync(async (req, res, next) => {
   const job = await Job.findOneAndUpdate(
     { _id: req.params.id, user: req.user._id }, // ownership check
@@ -65,14 +65,14 @@ const updateJob = catchAsync(async (req, res, next) => {
   res.status(200).json({ status: 'success', data: { job } });
 });
 
-// ─── DELETE /api/jobs/:id ─────────────────────────────────────────────────────
+//  DELETE /api/jobs/:id 
 const deleteJob = catchAsync(async (req, res, next) => {
   const job = await Job.findOneAndDelete({ _id: req.params.id, user: req.user._id });
   if (!job) return next(new AppError('Job not found or access denied.', 404));
   res.status(204).json({ status: 'success', data: null }); // 204 = No Content
 });
 
-// ─── GET /api/jobs/stats ──────────────────────────────────────────────────────
+//  GET /api/jobs/stats 
 // Returns count per status + monthly breakdown for dashboard
 const getStats = catchAsync(async (req, res) => {
   const [statusStats, monthlyStats] = await Promise.all([

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-/* ─── Design Tokens ─────────────────────────────────────────────── */
+/*  Design Tokens */
 :root {
   --bg-primary: #0a0a0f;
   --bg-secondary: #111118;
@@ -45,7 +45,7 @@
   --transition-slow: all 0.35s ease;
 }
 
-/* ─── Reset ─────────────────────────────────────────────────────── */
+/*  Reset  */
 *,
 *::before,
 *::after {
@@ -89,7 +89,7 @@ img {
   display: block;
 }
 
-/* ─── Typography ────────────────────────────────────────────────── */
+/*  Typography  */
 h1 {
   font-size: 2.25rem;
   font-weight: 800;
@@ -111,7 +111,7 @@ h4 {
   font-weight: 600;
 }
 
-/* ─── Layout ────────────────────────────────────────────────────── */
+/*  Layout  */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -126,7 +126,7 @@ h4 {
   background: var(--bg-primary);
 }
 
-/* ─── Spinner ───────────────────────────────────────────────────── */
+/* Spinner  */
 .spinner {
   width: 44px;
   height: 44px;
@@ -142,7 +142,7 @@ h4 {
   }
 }
 
-/* ─── Buttons ───────────────────────────────────────────────────── */
+/*  Buttons  */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -222,7 +222,7 @@ h4 {
   width: 100%;
 }
 
-/* ─── Form Elements ─────────────────────────────────────────────── */
+/*  Form Elements  */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -290,7 +290,7 @@ h4 {
   margin-top: 0.2rem;
 }
 
-/* ─── Cards ─────────────────────────────────────────────────────── */
+/*  Cards  */
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -307,7 +307,7 @@ h4 {
   box-shadow: var(--shadow-md);
 }
 
-/* ─── Status Badges ─────────────────────────────────────────────── */
+/*  Status Badges  */
 .badge {
   display: inline-flex; align-items: center; gap: 0.35rem;
   padding: 0.3rem 0.75rem;
@@ -349,7 +349,7 @@ h4 {
   border: 1px solid rgba(239, 68, 68, 0.3);
 }
 
-/* ─── Glassmorphism ─────────────────────────────────────────────── */
+/*  Glassmorphism  */
 .glass {
   background: rgba(21, 25, 34, 0.7);
   backdrop-filter: blur(16px);
@@ -357,7 +357,7 @@ h4 {
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* ─── Page Header ───────────────────────────────────────────────── */
+/*  Page Header  */
 .page-header {
   display: flex;
   align-items: center;
@@ -378,7 +378,7 @@ h4 {
   margin-top: 0.25rem;
 }
 
-/* ─── Empty State ───────────────────────────────────────────────── */
+/* Empty State  */
 .empty-state {
   display: flex;
   flex-direction: column;
@@ -394,14 +394,14 @@ h4 {
   opacity: 0.3;
 }
 
-/* ─── Divider ───────────────────────────────────────────────────── */
+/* Divider  */
 .divider {
   height: 1px;
   background: var(--border);
   margin: 1.5rem 0;
 }
 
-/* ─── Scrollbar ─────────────────────────────────────────────────── */
+/*  Scrollbar  */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -419,7 +419,7 @@ h4 {
   background: var(--text-muted);
 }
 
-/* ─── Animations ────────────────────────────────────────────────── */
+/*  Animations  */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -450,7 +450,7 @@ h4 {
   animation: fadeIn 0.3s ease forwards;
 }
 
-/* ─── Responsive ────────────────────────────────────────────────── */
+/*  Responsive  */
 @media (max-width: 768px) {
   h1 {
     font-size: 1.75rem;

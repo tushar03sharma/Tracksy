@@ -17,13 +17,13 @@ const jobRoutes = require('./routes/jobRoutes');
 
 const app = express();
 
-// ─── Connect Database ────────────────────────────────────────────
+//  Connect Database 
 connectDB();
 
-// ─── Security Headers ────────────────────────────────────────────
+//  Security Headers 
 app.use(helmet());
 
-// ─── CORS ────────────────────────────────────────────────────────
+//  CORS 
 const allowedOrigins = (process.env.CLIENT_URL || 'http://localhost:5173').split(',');
 app.use(
   cors({
@@ -36,19 +36,19 @@ app.use(
   })
 );
 
-// ─── Compression ─────────────────────────────────────────────────
+//  Compression 
 // Gzip responses > 1kb — cuts payload size by ~70%
 app.use(compression());
 
-// ─── Body Parser ─────────────────────────────────────────────────
+//  Body Parser 
 app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 
-// ─── Data Sanitization ───────────────────────────────────────────
+//  Data Sanitization 
 app.use(mongoSanitize()); // Prevent NoSQL injection ($, . in body)
 app.use(hpp());           // Prevent HTTP parameter pollution (duplicate query keys)
 
-// ─── Rate Limiting ───────────────────────────────────────────────
+//  Rate Limiting 
 const globalLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 min
   max: 100,
@@ -69,14 +69,14 @@ const authLimiter = rateLimit({
 app.use('/api', globalLimiter);
 app.use('/api/auth', authLimiter);
 
-// ─── Logging ─────────────────────────────────────────────────────
+//  Logging 
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 
-// ─── Routes ─────────────────────────────────────────────────────
+//  Routes 
 app.use('/api/auth', authRoutes);
 app.use('/api/jobs', jobRoutes);
 
-// ─── Health Check ─────────────────────────────────────────────────
+//  Health Check 
 app.get('/api/health', (req, res) => {
   res.status(200).json({
     status: 'ok',
@@ -86,21 +86,21 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// ─── 404 Handler ─────────────────────────────────────────────────
+//  404 Handler 
 app.all('*', (req, res, next) => {
   next(new AppError(`Route ${req.originalUrl} not found`, 404));
 });
 
-// ─── Global Error Handler ─────────────────────────────────────────
+//  Global Error Handler 
 app.use(errorHandler);
 
-// ─── Start Server ─────────────────────────────────────────────────
+//  Start Server 
 const PORT = process.env.PORT || 5000;
 const server = app.listen(PORT, () => {
   console.log(`🚀 Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
 });
 
-// ─── Graceful Shutdown ────────────────────────────────────────────
+//  Graceful Shutdown 
 // Catches SIGTERM (from process manager like PM2/Docker) and SIGINT (Ctrl+C)
 const shutdown = (signal) => {
   console.log(`\n⚠️  ${signal} received. Closing server gracefully...`);

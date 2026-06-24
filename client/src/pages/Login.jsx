@@ -74,7 +74,7 @@ const Login = () => {
               name="email"
               type="email"
               className={`form-input ${errors.email ? 'error' : ''}`}
-              placeholder="you@example.com"
+              placeholder="tushar@gmail.com"
               value={form.email}
               onChange={handleChange}
               autoComplete="email"

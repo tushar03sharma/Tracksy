@@ -26,14 +26,14 @@ api.interceptors.response.use(
   }
 );
 
-// ─── Auth ──────────────────────────────────────────────────────────
+// Auth 
 export const authAPI = {
   register: (data) => api.post('/auth/register', data),
   login: (data) => api.post('/auth/login', data),
   getMe: () => api.get('/auth/me'),
 };
 
-// ─── Jobs ──────────────────────────────────────────────────────────
+// Jobs 
 export const jobsAPI = {
   getAll: (params) => api.get('/jobs', { params }),
   getOne: (id) => api.get(`/jobs/${id}`),

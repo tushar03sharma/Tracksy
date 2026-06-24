@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
         const res = await authAPI.getMe();
         setUser(res.data.data.user);
       } catch {
-        // Token invalid/expired — clear everything
+        // Token invalid/expired clear everything
         logout();
       } finally {
         setLoading(false);
@@ -50,7 +50,7 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-// Custom hook — import this everywhere instead of useContext(AuthContext)
+// Custom hook import this everywhere instead of useContext(AuthContext)
 export const useAuth = () => {
   const ctx = useContext(AuthContext);
   if (!ctx) throw new Error('useAuth must be used within AuthProvider');
