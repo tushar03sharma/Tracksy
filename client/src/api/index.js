@@ -6,6 +6,11 @@ const api = axios.create({
   headers: { 'Content-Type': 'application/json' },
 });
 
+// Keep Render free tier awake — ping every 10 min to prevent cold start during Google OAuth
+const pingServer = () => axios.get(`${import.meta.env.VITE_API_URL}/health`).catch(() => {});
+pingServer(); // ping immediately on app load
+setInterval(pingServer, 10 * 60 * 1000); // then every 10 minutes
+
 // Request interceptor — auto-attaches JWT from localStorage to every request
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
