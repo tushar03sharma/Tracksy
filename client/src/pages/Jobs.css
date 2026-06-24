@@ -7,7 +7,7 @@
   gap: 1rem;
   padding: 0.85rem 1.1rem;
   margin-bottom: 1.25rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;       /* keep search + dropdowns on one line */
 }
 
 .search-box {
@@ -41,18 +41,20 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  flex-wrap: wrap;
+  flex-shrink: 0;          /* never shrink — keeps dropdowns from wrapping */
+  flex-wrap: nowrap;
 }
 .filter-group {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   color: var(--text-muted);
+  white-space: nowrap;
 }
 .filter-select {
   padding: 0.55rem 0.9rem;
   font-size: 0.85rem;
-  min-width: 140px;
+  min-width: 130px;
 }
 
 /* ─── Table ─────────────────────────────────────────────────────── */
