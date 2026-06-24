@@ -7,6 +7,7 @@ import {
 import toast from 'react-hot-toast';
 import { jobsAPI } from '../api';
 import StatusBadge from '../components/ui/StatusBadge';
+import { JobRowSkeleton } from '../components/ui/Skeleton';
 import { ALL_STATUSES, formatDate } from '../utils/statusHelpers';
 import './Jobs.css';
 
@@ -129,8 +130,16 @@ const Jobs = () => {
 
       {/* Table */}
       {loading ? (
-        <div className="full-page-loader" style={{ minHeight: '300px' }}>
-          <div className="spinner" />
+        <div className="jobs-table-wrapper card card-elevated">
+          <table className="jobs-table">
+            <thead><tr>
+              <th>Company</th><th>Role</th><th>Status</th>
+              <th>Applied</th><th>Link</th><th>Actions</th>
+            </tr></thead>
+            <tbody>
+              {[...Array(5)].map((_, i) => <JobRowSkeleton key={i} />)}
+            </tbody>
+          </table>
         </div>
       ) : jobs.length === 0 ? (
         <div className="card empty-state">
