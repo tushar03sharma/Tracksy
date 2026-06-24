@@ -18,6 +18,9 @@ const jobRoutes = require('./routes/jobRoutes');
 
 const app = express();
 
+// Trust Render's proxy — required for rate-limit and IP detection on cloud platforms
+app.set('trust proxy', 1);
+
 //  Connect Database 
 connectDB();
 
