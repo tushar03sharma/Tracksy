@@ -51,7 +51,7 @@ const Register = () => {
 
   const strength = form.password.length === 0 ? 0
     : form.password.length < 6 ? 1
-    : form.password.length < 10 ? 2 : 3;
+      : form.password.length < 10 ? 2 : 3;
   const strengthLabel = ['', 'Weak', 'Good', 'Strong'][strength];
   const strengthClass = ['', 'weak', 'good', 'strong'][strength];
 
@@ -81,7 +81,7 @@ const Register = () => {
               name="name"
               type="text"
               className={`form-input ${errors.name ? 'error' : ''}`}
-              placeholder="John Doe"
+              placeholder="Elon Musk"
               value={form.name}
               onChange={handleChange}
               autoComplete="name"
@@ -96,7 +96,7 @@ const Register = () => {
               name="email"
               type="email"
               className={`form-input ${errors.email ? 'error' : ''}`}
-              placeholder="you@example.com"
+              placeholder="elon@email.com"
               value={form.email}
               onChange={handleChange}
               autoComplete="email"
@@ -130,7 +130,7 @@ const Register = () => {
             {form.password && (
               <div className="password-strength">
                 <div className="strength-bars">
-                  {[1,2,3].map(i => (
+                  {[1, 2, 3].map(i => (
                     <div key={i} className={`strength-bar ${strength >= i ? strengthClass : ''}`} />
                   ))}
                 </div>
