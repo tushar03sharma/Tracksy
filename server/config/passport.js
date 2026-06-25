@@ -7,7 +7,10 @@ passport.use(
     {
       clientID:     process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL:  process.env.GOOGLE_CALLBACK_URL,
+      // Relative path — passport builds the full URL from the live request
+      // Avoids any double-slash issues with the GOOGLE_CALLBACK_URL env var
+      callbackURL:  '/api/auth/google/callback',
+      proxy: true, // required for https on Render (trust proxy)
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
