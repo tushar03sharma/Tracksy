@@ -49,6 +49,30 @@ const jobSchema = new mongoose.Schema(
     deadline: {
       type: Date,
     },
+
+    // ── Status History ─────────────────────────────────────────────────
+    // Tracks every status change with source (manual, email auto-detect, extension)
+    statusHistory: [
+      {
+        status: {
+          type: String,
+          enum: ['Applied', 'OA', 'Interview', 'Offer', 'Rejected'],
+        },
+        changedAt: {
+          type: Date,
+          default: Date.now,
+        },
+        source: {
+          type: String,
+          enum: ['manual', 'email', 'extension'],
+          default: 'manual',
+        },
+        note: {
+          type: String, // e.g. "Auto-detected from email: 'Interview invitation from Google'"
+          maxlength: 300,
+        },
+      },
+    ],
   },
   {
     timestamps: true, // adds createdAt and updatedAt automatically

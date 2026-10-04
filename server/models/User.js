@@ -38,6 +38,34 @@ const userSchema = new mongoose.Schema(
       type: String, // Google profile picture URL
       default: null,
     },
+
+    // ── Gmail Integration ─────────────────────────────────────────────
+    gmailConnected: {
+      type: Boolean,
+      default: false,
+    },
+    gmailAccessToken: {
+      type: String,
+      default: null,
+      select: false, // never returned in normal queries for security
+    },
+    gmailRefreshToken: {
+      type: String,
+      default: null,
+      select: false,
+    },
+    gmailTokenExpiry: {
+      type: Date,
+      default: null,
+    },
+    gmailHistoryId: {
+      type: String,
+      default: null, // Gmail history ID for incremental fetches
+    },
+    gmailLastChecked: {
+      type: Date,
+      default: null,
+    },
   },
   { timestamps: true }
 );
