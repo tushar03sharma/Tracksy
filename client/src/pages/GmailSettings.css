@@ -1,0 +1,270 @@
+/* ─── Gmail Settings Page ───────────────────────────────────────────── */
+.gmail-settings {
+  padding: 2rem;
+  max-width: 780px;
+}
+
+/* ─── Skeleton ──────────────────────────────────────────────────────── */
+.gmail-settings-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+}
+.skeleton-line {
+  height: 18px;
+  background: linear-gradient(90deg, var(--bg-card) 25%, var(--bg-card-hover) 50%, var(--bg-card) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: var(--radius-sm);
+}
+.skeleton-title { height: 28px; width: 40%; }
+.skeleton-body  { width: 80%; }
+.skeleton-body.short { width: 55%; }
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ─── Connection Card ───────────────────────────────────────────────── */
+.gmail-card {
+  margin-bottom: 1.5rem;
+}
+.gmail-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.gmail-icon-wrap {
+  width: 48px; height: 48px; flex-shrink: 0;
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  color: #000;
+}
+.gmail-card-info {
+  flex: 1;
+  min-width: 200px;
+}
+.gmail-card-info h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+.gmail-card-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Status pill */
+.gmail-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.gmail-status-pill.connected {
+  background: rgba(34, 197, 94, 0.12);
+  color: var(--success);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+.gmail-status-pill.disconnected {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--danger);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+/* ─── Meta info row ─────────────────────────────────────────────────── */
+.gmail-meta {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin: 1rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+.gmail-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+.gmail-meta-item svg { color: var(--text-muted); }
+
+/* ─── Card Actions ──────────────────────────────────────────────────── */
+.gmail-card-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+/* Spin animation for scan icon */
+.spin {
+  animation: spin 0.8s linear infinite;
+}
+
+/* ─── How It Works ──────────────────────────────────────────────────── */
+.gmail-how-it-works {
+  margin-bottom: 1.5rem;
+}
+.gmail-how-it-works h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+.gmail-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+.gmail-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+.gmail-step-num {
+  width: 26px; height: 26px; flex-shrink: 0;
+  background: var(--accent-glow);
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-light);
+}
+.gmail-step p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  padding-top: 0.2rem;
+}
+.gmail-privacy-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  font-size: 0.8rem;
+  color: var(--info);
+}
+.gmail-privacy-note svg { flex-shrink: 0; margin-top: 2px; }
+
+/* ─── Activity Log ──────────────────────────────────────────────────── */
+.gmail-activity {
+  margin-bottom: 1.5rem;
+}
+.gmail-activity-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+.gmail-activity-header h3 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+.gmail-activity-count {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  background: var(--bg-input);
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+}
+.gmail-activity-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 2.5rem 1rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+.gmail-activity-empty svg { opacity: 0.25; }
+.gmail-activity-empty p { font-size: 0.95rem; color: var(--text-secondary); }
+.gmail-inline-btn {
+  background: none; border: none;
+  color: var(--accent-light);
+  font-size: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+.gmail-activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.gmail-activity-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.gmail-activity-item:last-child { border-bottom: none; }
+.gmail-activity-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  flex: 1;
+  min-width: 0;
+}
+.gmail-activity-icon { color: var(--text-muted); flex-shrink: 0; margin-top: 2px; }
+.gmail-activity-company {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.gmail-activity-company em {
+  font-style: normal;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+.gmail-activity-note {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 380px;
+}
+.gmail-activity-right {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+.gmail-activity-time {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* ─── Responsive ────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .gmail-settings { padding: 1.25rem; }
+  .gmail-card-header { flex-direction: column; }
+  .gmail-status-pill { align-self: flex-start; }
+  .gmail-activity-item { flex-direction: column; align-items: flex-start; }
+  .gmail-activity-right { margin-top: 0.4rem; }
+}
