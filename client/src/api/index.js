@@ -48,4 +48,12 @@ export const jobsAPI = {
   getStats: () => api.get('/jobs/stats'),
 };
 
+// Gmail Integration 
+export const gmailAPI = {
+  getAuthUrl: () => api.get('/gmail/auth-url'),
+  getStatus: () => api.get('/gmail/status'),
+  scanNow: () => api.post('/gmail/scan'),
+  disconnect: () => api.delete('/gmail/disconnect'),
+};
+
 export default api;

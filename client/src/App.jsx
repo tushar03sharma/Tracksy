@@ -13,6 +13,8 @@ import JobForm from './pages/JobForm';
 import JobDetail from './pages/JobDetail';
 import NotFound from './pages/NotFound';
 import AuthCallback from './pages/AuthCallback';
+import GmailSettings from './pages/GmailSettings';
+
 
 function App() {
   return (
@@ -45,11 +47,12 @@ function App() {
             {/* Protected — rendered inside AppLayout (Sidebar + main) */}
             <Route element={<ProtectedRoute />}>
               <Route element={<AppLayout />}>
-                <Route path="/dashboard"       element={<Dashboard />} />
-                <Route path="/jobs"            element={<Jobs />} />
-                <Route path="/jobs/new"        element={<JobForm />} />
-                <Route path="/jobs/:id"        element={<JobDetail />} />
-                <Route path="/jobs/:id/edit"   element={<JobForm />} />
+                <Route path="/dashboard"          element={<Dashboard />} />
+                <Route path="/jobs"               element={<Jobs />} />
+                <Route path="/jobs/new"           element={<JobForm />} />
+                <Route path="/jobs/:id"           element={<JobDetail />} />
+                <Route path="/jobs/:id/edit"      element={<JobForm />} />
+                <Route path="/settings/gmail"     element={<GmailSettings />} />
               </Route>
             </Route>
 

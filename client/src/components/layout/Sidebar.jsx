@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import {
-  LayoutDashboard, Briefcase, LogOut, Menu, X, ChevronRight
+  LayoutDashboard, Briefcase, LogOut, Menu, X, ChevronRight, Mail
 } from 'lucide-react';
 import { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
@@ -8,9 +8,11 @@ import toast from 'react-hot-toast';
 import './Sidebar.css';
 
 const NAV_ITEMS = [
-  { to: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
-  { to: '/jobs',      icon: Briefcase,       label: 'My Jobs'   },
+  { to: '/dashboard',     icon: LayoutDashboard, label: 'Dashboard'  },
+  { to: '/jobs',          icon: Briefcase,       label: 'My Jobs'    },
+  { to: '/settings/gmail', icon: Mail,           label: 'Email Sync' },
 ];
+
 
 const Sidebar = () => {
   const { user, logout } = useAuth();
