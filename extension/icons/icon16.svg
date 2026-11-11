@@ -1,0 +1,5 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'>
+  <rect width='16' height='16' rx='3' fill='#0d0d14'/>
+  <rect x='2' y='2' width='13' height='13' rx='2' fill='#ff9500'/>
+  <text x='50%' y='62%' font-size='9' text-anchor='middle' fill='#0d0d14' font-family='Arial' font-weight='900'>T</text>
+</svg>

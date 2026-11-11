@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tracksy</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div id="app">
+
+    <!-- ── Header ─────────────────────────────────────── -->
+    <header class="header">
+      <div class="logo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="7" width="20" height="14" rx="2"/>
+          <path d="M16 7V5a2 2 0 0 0-4 0v2"/>
+          <path d="M12 12v4"/>
+          <path d="M10 14h4"/>
+        </svg>
+        <span>Tracksy</span>
+      </div>
+      <div id="status-dot" class="status-dot disconnected" title="Not logged in"></div>
+    </header>
+
+    <!-- ── Auth View (not logged in) ─────────────────── -->
+    <div id="auth-view" class="view hidden">
+      <p class="auth-hint">Sign in to save jobs directly from any job board.</p>
+      <form id="auth-form">
+        <div class="field">
+          <label for="api-url">Tracksy API URL</label>
+          <input id="api-url" type="url" placeholder="http://localhost:5001/api" autocomplete="off" />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="you@example.com" autocomplete="email" />
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" type="password" placeholder="••••••••" autocomplete="current-password" />
+        </div>
+        <div id="auth-error" class="error-msg hidden"></div>
+        <button type="submit" id="login-btn" class="btn btn-primary btn-full">
+          Sign In
+        </button>
+      </form>
+    </div>
+
+    <!-- ── Save Job View (logged in) ─────────────────── -->
+    <div id="save-view" class="view hidden">
+      <div id="scrape-status" class="scrape-status">
+        <span id="scrape-msg">Detecting job details…</span>
+      </div>
+
+      <form id="save-form">
+        <div class="field">
+          <label for="company">Company <span class="required">*</span></label>
+          <input id="company" type="text" placeholder="e.g. Google" required />
+        </div>
+        <div class="field">
+          <label for="role">Role <span class="required">*</span></label>
+          <input id="role" type="text" placeholder="e.g. Software Engineer" required />
+        </div>
+        <div class="field">
+          <label for="location">Location</label>
+          <input id="location" type="text" placeholder="e.g. Remote, New York" />
+        </div>
+        <div class="field">
+          <label for="salary">Salary</label>
+          <input id="salary" type="text" placeholder="e.g. $120,000–$150,000" />
+        </div>
+        <div class="field">
+          <label for="job-link">Job URL</label>
+          <input id="job-link" type="url" placeholder="https://..." />
+        </div>
+        <div class="field">
+          <label for="status">Status</label>
+          <select id="status">
+            <option value="Applied" selected>Applied</option>
+            <option value="OA">OA (Online Assessment)</option>
+            <option value="Interview">Interview</option>
+            <option value="Offer">Offer</option>
+            <option value="Rejected">Rejected</option>
+          </select>
+        </div>
+
+        <div id="save-error" class="error-msg hidden"></div>
+
+        <div class="form-actions">
+          <button type="submit" id="save-btn" class="btn btn-primary btn-full">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            Save to Tracksy
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- ── Success View ───────────────────────────────── -->
+    <div id="success-view" class="view hidden">
+      <div class="success-content">
+        <div class="success-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <h3 id="success-title">Job Saved!</h3>
+        <p id="success-desc"></p>
+        <button id="save-another-btn" class="btn btn-secondary btn-full">Save Another</button>
+      </div>
+    </div>
+
+    <!-- ── Footer ─────────────────────────────────────── -->
+    <footer class="footer">
+      <button id="logout-btn" class="footer-link hidden">Log out</button>
+      <a id="open-tracksy-btn" class="footer-link hidden" target="_blank" rel="noopener noreferrer">
+        Open Tracksy ↗
+      </a>
+    </footer>
+
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
